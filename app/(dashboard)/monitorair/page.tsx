@@ -12,7 +12,7 @@ export default async function DashboardAir() {
       <h3>
         Monitoring Air <Link href={"monitorair/alldata"}>➡️</Link>
       </h3>
-      {/* <ChartAir props={DataMonitoring}></ChartAir> */}
+      <ChartAir props={DataMonitoring}></ChartAir>
     </main>
   );
 }

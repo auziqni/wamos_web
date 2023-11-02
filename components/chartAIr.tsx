@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import dynamic from "next/dynamic"; // for server
 const ApexChart = dynamic(() => import("react-apexcharts"), { ssr: false });
 // import ApexChart from "react-apexcharts"; // for dev
@@ -7,14 +7,21 @@ import Datacard from "@/components/datacard";
 import { Monitoring } from "@prisma/client";
 import TimeConvert from "@/lib/timeConvert";
 import { useRouter } from "next/navigation";
-import { pusherClient } from "@/lib/pusher";
 
-const formatData = (props: Monitoring[]) => {
-  const datawaktu = props.map((item) => TimeConvert({ props: item }));
+type mock = {
+  waktu: string;
+  suhu: number;
+  ph: number;
+  ppm: number;
+};
 
-  const datasuhu = props.map((item) => item.air_suhu);
-  const dataph = props.map((item) => item.air_ph);
-  const datappm = props.map((item) => item.air_tds);
+const formatData = (data: Monitoring[]) => {
+  const datawaktu = data.map((item) => TimeConvert({ props: item }));
+  //   const datawaktu = data.map((item) => item.createdat.getDate.toString);
+  //   const datawaktu = TimeConvert(data);
+  const datasuhu = data.map((item) => item.air_suhu);
+  const dataph = data.map((item) => item.air_ph);
+  const datappm = data.map((item) => item.air_tds);
 
   return {
     series: [
@@ -77,7 +84,7 @@ const formatData = (props: Monitoring[]) => {
             style: {
               colors: "#008FFB",
             },
-            formatter: function (value: number) {
+            formatter: function (value: any) {
               return value + " 'C";
             },
           },
@@ -109,7 +116,7 @@ const formatData = (props: Monitoring[]) => {
             style: {
               colors: "#00E396",
             },
-            formatter: function (value: number) {
+            formatter: function (value: any) {
               return value + "";
             },
           },
@@ -137,7 +144,7 @@ const formatData = (props: Monitoring[]) => {
             style: {
               colors: "#FEB019",
             },
-            formatter: function (value: number) {
+            formatter: function (value: any) {
               return value + "";
             },
           },
@@ -167,59 +174,23 @@ const formatData = (props: Monitoring[]) => {
 };
 
 export default function ChartAir({ props }: { props: Monitoring[] }) {
+  // const [makan, setmakan] = useState(false);
   const router = useRouter();
-  // router.refresh();
-
-  // const aaaa = "das";
+  router.refresh();
   const chartOptions: any = formatData(props).options;
   const chartSeries: any = formatData(props).series;
   const lastData: Monitoring = props[props.length - 1];
 
-  const [incomingMessages, setIncomingMessages] = useState("false");
-  const [refresh, setRefresh] = useState(false);
-  if (refresh) {
-    router.refresh();
-    setRefresh(false);
-  }
-
-  useEffect(() => {
-    pusherClient.subscribe("refreshData");
-
-    pusherClient.bind("incoming-message", (text: string) => {
-      setIncomingMessages(text);
-      setRefresh(true);
-      // router.refresh();
-      // setIncomingMessages((prev) => [...prev, text]);
-      // router.refresh();
-      // if (true) {
-      //   router.refresh()
-      // } else {
-      // }
-    });
-
-    return () => {
-      pusherClient.unsubscribe("refreshData");
-    };
-  }, [incomingMessages]);
-
   return (
-    <div className="relative h-90v flex flex-col ">
-      <div>{incomingMessages}</div>
-      <div>s</div>
-      <div>{process.env.NEXT_PUBLIC_PUSHER_APP_KEY}</div>
-      <div className="flex justify-between pt-6">
+    <div className="relative h-screen flex flex-col px-5">
+      <div className="flex justify-between pt-5">
         {/* <Datacard tittle="waktu" nilai={lastData.createdat.getDate} /> */}
         <Datacard tittle="temp" nilai={lastData.air_suhu} />
         <Datacard tittle="ph" nilai={lastData.air_ph} />
         <Datacard tittle="tds" nilai={lastData.air_tds} />
       </div>
       <div className="flex-1 ">
-        <ApexChart
-          options={chartOptions}
-          series={chartSeries}
-          height={"95%"}
-          width={"100%"}
-        />
+        <ApexChart options={chartOptions} series={chartSeries} height={"90%"} />
       </div>
     </div>
   );
