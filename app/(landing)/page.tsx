@@ -3,25 +3,22 @@ import FeatureCard from "@/components/featureCard";
 export default function Home() {
   return (
     <main>
-      <section className="relative flex items-center justify-center overflow-clip w-full h-screen bg-slate-300 ">
+      <section
+        id="main"
+        className="relative flex items-center justify-center overflow-clip w-full h-screen bg-slate-900 "
+      >
         <Image
           className="absolute z-0 min-h-screen"
-          src="/image/landingbg.jpg"
+          src="/image/hero.png"
           alt="fish monitor"
           sizes="100vw"
           style={{ width: "100%", height: "auto" }}
           height={10}
           width={20}
         ></Image>
-        <div className="h-60 w-96 z-10 bg-white/20 rounded-2xl  ">
-          <div>
-            <h1>masuk</h1>
-            <h2 className="h-10 w-20 bg-red-300">masuk</h2>
-          </div>
-        </div>
       </section>
 
-      <section className="relative w-full bg-slate-400 p-10">
+      <section id="description" className="relative w-full bg-[#ffffff] p-10">
         <div>Kenalan Dengan Wamos</div>
 
         <div>
@@ -61,7 +58,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="relative w-full  bg-slate-200">
+      <section id="features" className="relative w-full  bg-[#fcefe7]">
         <div className="w-32 mx-auto ">Fitur</div>
         <div className="flex justify-evenly ">
           <div className="grid grid-cols-1">
