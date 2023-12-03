@@ -19,7 +19,7 @@ export default function Home() {
       </section>
 
       <section id="description" className="relative w-full bg-[#ffffff] p-10">
-        <div>Kenalan Dengan Wamos</div>
+        <div>Kenalan Dengan Wamos UGKUG</div>
 
         <div>
           <h2>
