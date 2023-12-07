@@ -1,17 +1,15 @@
 import React from "react";
 import Link from "next/link";
-import { GetDataMonitoringofTen } from "@/lib/getData";
-import ChartAir from "@/components/chartAIr";
+import { GetDataMonitoringofTen, GetDataMonitoring } from "@/lib/getData";
+import ChartAir from "@/components/chartAIrSatuSatu";
 export const dynamic = "force-dynamic";
 
 export default async function DashboardAir() {
-  const DataMonitoring = await GetDataMonitoringofTen();
+  // const DataMonitoring = await GetDataMonitoringofTen();
+  const DataMonitoring = await GetDataMonitoring();
 
   return (
-    <main className="pt-20 px-5 h-screen overflow-clip">
-      <h3>
-        Monitoring Air <Link href={"monitorair/alldata"}>➡️</Link>
-      </h3>
+    <main>
       <ChartAir props={DataMonitoring}></ChartAir>
     </main>
   );

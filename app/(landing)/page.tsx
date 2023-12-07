@@ -19,7 +19,9 @@ export default function Home() {
       </section>
 
       <section id="description" className="relative w-full bg-[#ffffff] p-10">
-        <div>Kenalan Dengan Wamos UGKUG</div>
+        <h1 className=" mb-5 text-xl text-center font-bold">
+          Kenalan Dengan Wamos
+        </h1>
 
         <div>
           <h2>
@@ -33,9 +35,20 @@ export default function Home() {
             hidup dan ekosistem.
           </h2>
         </div>
-        <div className="grid grid-cols-3 mt-10 ">
-          <div className="relative bg-white">gambar</div>
-          <p className="col-span-2">
+        <div className="grid lg:grid-cols-3 md:col-span-1 mt-10 ">
+          <div className="relative bg-white">
+            <Image
+              className="mx-auto"
+              src="/image/alat1.png"
+              alt="fish monitor"
+              // sizes="100vw"
+              style={{ width: "auto", height: "auto" }}
+              height={100}
+              width={200}
+            ></Image>
+          </div>
+
+          <p className="lg:col-span-2 md:col-span-1">
             WAMOS hadir dengan fitur canggih untuk memantau kondisi kolam ikan
             secara akurat. Sensor yang sensitif dan sistem analitik yang cerdas
             memonitor parameter penting seperti suhu, pH, kadar oksigen, dan
@@ -45,8 +58,8 @@ export default function Home() {
             untuk menjaga kesehatan ikan dan lingkungan akuatik secara optimal.
           </p>
         </div>
-        <div className="grid grid-cols-3 mt-10">
-          <p className="col-span-2">
+        <div className="grid lg:grid-cols-3 md:col-span-1 mt-10">
+          <p className="lg:col-span-2 md:col-span-1">
             WAMOS juga dilengkapi dengan sensor canggih untuk memeriksa kualitas
             udara di sekitar kolam ikan. Pemantauan ini meliputi parameter
             seperti kualitas udara, suhu, kelembaban, dan tingkat polusi.
@@ -54,13 +67,23 @@ export default function Home() {
             kolam ikan, membantu menjaga kesehatan ikan dan mencegah dampak
             buruk dari perubahan lingkungan.
           </p>
-          <div className="relative bg-white">gambar</div>
+          <div className="relative bg-white">
+            <Image
+              className="mx-auto"
+              src="/image/alat2.png"
+              alt="fish monitor"
+              // sizes="100vw"
+              style={{ width: "auto", height: "auto" }}
+              height={100}
+              width={200}
+            ></Image>
+          </div>
         </div>
       </section>
 
-      <section id="features" className="relative w-full  bg-[#fcefe7]">
-        <div className="w-32 mx-auto ">Fitur</div>
-        <div className="flex justify-evenly ">
+      <section id="features" className="relative w-full  bg-[#fcefe7] pt-5">
+        <h1 className=" m-5 text-xl text-center font-bold">Fitur</h1>
+        <div className="grid lg:grid-cols-2 md:grid-cols-1">
           <div className="grid grid-cols-1">
             <FeatureCard
               src="/image/water-temp.png"

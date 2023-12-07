@@ -9,7 +9,7 @@ type data = {
 
 export default function FeatureCard({ src, tittle, desc }: data) {
   return (
-    <div className="relative flex h-20 items-center border border-black rounded-xl m-8 p-2">
+    <div className="relative flex items-center border border-black rounded-xl m-5  p-2">
       <Image src={src} alt={tittle} width={50} height={50}></Image>
       <div className="ml-7">
         <h1>{tittle}</h1>

@@ -1,17 +1,14 @@
 import React from "react";
 import Link from "next/link";
-import { GetDataMonitoringofTen } from "@/lib/getData";
+import { GetDataMonitoringofTen, GetDataMonitoring } from "@/lib/getData";
 export const dynamic = "force-dynamic";
-import ChartUdara from "@/components/chartUdara";
+import ChartUdara from "@/components/chartUdaraSatuSatu";
 
 export default async function DashboardAir() {
-  const DataMonitoring = await GetDataMonitoringofTen();
+  const DataMonitoring = await GetDataMonitoring();
 
   return (
-    <main className="pt-20 px-5 h-screen overflow-clip">
-      <h3>
-        Monitoring Udara<Link href={"monitorudara/alldata"}>➡️</Link>
-      </h3>
+    <main>
       <ChartUdara props={DataMonitoring}></ChartUdara>
     </main>
   );
