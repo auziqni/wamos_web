@@ -18,6 +18,8 @@ export const GetDataMonitoring = async () => {
       udara_co: true,
       udara_no2: true,
       udara_ch3: true,
+      q_air: true,
+      q_udara: true,
     },
   });
   return res;
@@ -43,6 +45,8 @@ export const GetDataMonitoringofTen = async () => {
       udara_co: true,
       udara_no2: true,
       udara_ch3: true,
+      q_air: true,
+      q_udara: true,
     },
   });
 

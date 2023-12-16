@@ -10,6 +10,7 @@ import { useRouter } from "next/navigation";
 import { Box } from "@mui/material";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import LinearProgress from "@mui/material/LinearProgress";
+import Showquality from "@/components/showquality";
 
 const formatDataSuhu = (data: Monitoring[]) => {
   const datawaktu = data.map((item) => TimeConvert({ props: item }));
@@ -334,8 +335,12 @@ export default function ChartAir({ props }: { props: Monitoring[] }) {
   const chartSeriesTds: any = formatDataTds(MonitoringofTen).series;
   // const lastData: Monitoring = props[props.length - 1];
 
+  const q_air = props[props.length - 1].q_air;
   return (
     <main className="mt-20 mx-5 grid lg:grid-cols-3 gap-5 md:grid-cols-1 ">
+      <div className="lg:col-span-3 md:col-span-1 mt-5">
+        <Showquality type="Udara" value={q_air}></Showquality>
+      </div>
       <div className="h-96 p-2 border border-sky-200 shadow-lg ">
         <h1 className=" text-center font-bold">Data Ph</h1>
         <ApexChart

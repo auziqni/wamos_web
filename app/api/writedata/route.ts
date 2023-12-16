@@ -11,6 +11,8 @@ type getreq = {
   udara_co: number;
   udara_no2: number;
   udara_ch3: number;
+  q_air: number;
+  q_udara: number;
 };
 
 export async function POST(request: Request) {
@@ -28,6 +30,8 @@ export async function POST(request: Request) {
       udara_co: body.udara_co,
       udara_no2: body.udara_no2,
       udara_ch3: body.udara_ch3,
+      q_air: 1,
+      q_udara: body.q_udara,
     },
   });
 

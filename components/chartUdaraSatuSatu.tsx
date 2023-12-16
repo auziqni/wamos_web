@@ -10,6 +10,7 @@ import { useRouter } from "next/navigation";
 import { Box } from "@mui/material";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import LinearProgress from "@mui/material/LinearProgress";
+import Showquality from "@/components/showquality";
 
 const formatDataCo = (data: Monitoring[]) => {
   const datawaktu = data.map((item) => TimeConvert({ props: item }));
@@ -325,8 +326,16 @@ export default function ChartUdara({ props }: { props: Monitoring[] }) {
   const chartOptionsCh3: any = formatDataCh3(MonitoringofTen).options;
   const chartSeriesCh3: any = formatDataCh3(MonitoringofTen).series;
   // const lastData: Monitoring = props[props.length - 1]No2
+
+  //get q_air from pops last data
+  const q_udara = props[props.length - 1].q_udara;
   return (
-    <main className="mt-20 mx-5 grid lg:grid-cols-3 gap-5 md:grid-cols-1 ">
+    <main className="mt-20 mx-5 grid lg:grid-cols-2 gap-5 md:grid-cols-1 ">
+      <div className="lg:col-span-2 md:col-span-1 mt-5">
+        <Showquality type="Udara" value={q_udara}></Showquality>
+      </div>
+
+      {/* <Showquality value={0}></Showquality> */}
       <div className="h-96 p-2 border border-sky-200 shadow-lg ">
         <h1 className=" text-center font-bold">Data Co</h1>
         <ApexChart
@@ -343,16 +352,8 @@ export default function ChartUdara({ props }: { props: Monitoring[] }) {
           height={"100%"}
         />
       </div>
-      <div className="h-96 p-2 border border-sky-200 shadow-lg">
-        <h1 className=" text-center font-bold">Data Ch3</h1>
-        <ApexChart
-          options={chartOptionsCh3}
-          series={chartSeriesCh3}
-          height={"100%"}
-        />
-      </div>
 
-      <div className=" lg:col-span-3 md:col-span-1 mt-5">
+      <div className=" lg:col-span-2 md:col-span-1 mt-5">
         {/* <button onClick={handleClick}>refresh</button> */}
         <Box
           sx={{

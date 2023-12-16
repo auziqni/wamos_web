@@ -19,7 +19,7 @@ datasource db {
 
 model Monitoring{
   id Int @id @default(autoincrement())
-  no_alat Int @default(1)
+  no_alat Int 
   createdat DateTime @default(now())
   air_ph Float
   air_tds Float
@@ -27,6 +27,8 @@ model Monitoring{
   udara_co Float
   udara_no2 Float
   udara_ch3 Float
+  q_air Int 
+  q_udara Int 
 }
 
 model MonitoringMock{
