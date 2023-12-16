@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { GetDataMonitoringofTen, GetDataMonitoring } from "@/lib/getData";
+import { GetDataMonitoring } from "@/lib/getData";
 export const dynamic = "force-dynamic";
 import ChartUdara from "@/components/chartUdaraSatuSatu";
 

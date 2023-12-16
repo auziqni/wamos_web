@@ -3,13 +3,11 @@ import React, { useState } from "react";
 import dynamic from "next/dynamic"; // for server
 const ApexChart = dynamic(() => import("react-apexcharts"), { ssr: false });
 // import ApexChart from "react-apexcharts"; // for dev
-import Datacard from "@/components/datacard";
 import { Monitoring } from "@prisma/client";
 import TimeConvert from "@/lib/timeConvert";
 import { useRouter } from "next/navigation";
 import { Box } from "@mui/material";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
-import LinearProgress from "@mui/material/LinearProgress";
 import Showquality from "@/components/showquality";
 
 const formatDataSuhu = (data: Monitoring[]) => {

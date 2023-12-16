@@ -1,9 +1,7 @@
 import { PrismaClient } from "@prisma/client";
-// import { currentUser } from "@clerk/nextjs";
 const prisma = new PrismaClient();
 
 export const GetDataMonitoring = async () => {
-  //   const user = await currentUser();
   const res = await prisma.monitoring.findMany({
     where: {
       no_alat: 1,

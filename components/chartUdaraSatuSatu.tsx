@@ -1,15 +1,12 @@
 "use client";
-import React, { useState } from "react";
 import dynamic from "next/dynamic"; // for server
 const ApexChart = dynamic(() => import("react-apexcharts"), { ssr: false });
-// import ApexChart from "react-apexcharts"; // for dev
-import Datacard from "@/components/datacard";
+
 import { Monitoring } from "@prisma/client";
 import TimeConvert from "@/lib/timeConvert";
 import { useRouter } from "next/navigation";
 import { Box } from "@mui/material";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
-import LinearProgress from "@mui/material/LinearProgress";
 import Showquality from "@/components/showquality";
 
 const formatDataCo = (data: Monitoring[]) => {
@@ -325,7 +322,6 @@ export default function ChartUdara({ props }: { props: Monitoring[] }) {
 
   const chartOptionsCh3: any = formatDataCh3(MonitoringofTen).options;
   const chartSeriesCh3: any = formatDataCh3(MonitoringofTen).series;
-  // const lastData: Monitoring = props[props.length - 1]No2
 
   //get q_air from pops last data
   const q_udara = props[props.length - 1].q_udara;
