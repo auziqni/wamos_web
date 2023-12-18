@@ -320,7 +320,6 @@ export default function ChartUdara({ props }: { props: Monitoring[] }) {
     <main className="mt-20 mx-5 grid lg:grid-cols-2 gap-5 md:grid-cols-1 ">
       <div className="lg:col-span-2 md:col-span-1 mt-5">
         <Showquality type="Udara" value={q_udara}></Showquality>
-        <h1>{nan}</h1>
       </div>
 
       {/* <Showquality value={0}></Showquality> */}
