@@ -298,13 +298,6 @@ const columns = [
     cellClassName: "name-column--cell",
     headerClassName: "super-app-theme--header",
   },
-  {
-    field: "udara_ch3",
-    headerName: "Ch3",
-    flex: 1,
-    cellClassName: "name-column--cell",
-    headerClassName: "super-app-theme--header",
-  },
 ];
 
 export default function ChartUdara({ props }: { props: Monitoring[] }) {
@@ -320,15 +313,14 @@ export default function ChartUdara({ props }: { props: Monitoring[] }) {
   const chartOptionsNo2: any = formatDataNo2(MonitoringofTen).options;
   const chartSeriesNo2: any = formatDataNo2(MonitoringofTen).series;
 
-  const chartOptionsCh3: any = formatDataCh3(MonitoringofTen).options;
-  const chartSeriesCh3: any = formatDataCh3(MonitoringofTen).series;
-
   //get q_air from pops last data
   const q_udara = props[props.length - 1].q_udara;
+  const nan = props.length;
   return (
     <main className="mt-20 mx-5 grid lg:grid-cols-2 gap-5 md:grid-cols-1 ">
       <div className="lg:col-span-2 md:col-span-1 mt-5">
         <Showquality type="Udara" value={q_udara}></Showquality>
+        <h1>{nan}</h1>
       </div>
 
       {/* <Showquality value={0}></Showquality> */}

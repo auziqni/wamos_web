@@ -30,7 +30,7 @@ export async function POST(request: Request) {
       udara_co: body.udara_co,
       udara_no2: body.udara_no2,
       udara_ch3: body.udara_ch3,
-      q_air: 1,
+      q_air: body.q_air,
       q_udara: body.q_udara,
     },
   });

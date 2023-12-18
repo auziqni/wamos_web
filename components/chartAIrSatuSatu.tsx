@@ -337,7 +337,7 @@ export default function ChartAir({ props }: { props: Monitoring[] }) {
   return (
     <main className="mt-20 mx-5 grid lg:grid-cols-3 gap-5 md:grid-cols-1 ">
       <div className="lg:col-span-3 md:col-span-1 mt-5">
-        <Showquality type="Udara" value={q_air}></Showquality>
+        <Showquality type="Air" value={q_air}></Showquality>
       </div>
       <div className="h-96 p-2 border border-sky-200 shadow-lg ">
         <h1 className=" text-center font-bold">Data Ph</h1>
